@@ -1,27 +1,31 @@
-// Setup counters for each cat and names
-var catOneClicks = 0;
-var catTwoClicks = 0;
-var catOneName = "Lazy";
-var catTwoName = "Handsome";
+// Create an array of clicks for each cat(starting at 0)
+catClicks = [0, 0, 0, 0, 0];
+// Create an array for the names of each cat
+catNames = ["Leo", "Mr Whiskers", "Sunstorm", "Furball", "Tufts"];
 
-// Add cat names to each image
-$(".cat-1").prepend("<h3>" + catOneName + "</h3>");
-$(".cat-2").prepend("<h3>" + catTwoName + "</h3>");
+// Setup a for loop to iterate through all of the cats
+for (var catNum = 0; catNum < catClicks.length; catNum++) {
+    // Add each cat name to the display
+    $(".cat-names").append("<h2 id='" + catNum + "'>" + catNames[catNum] + "</h2>")
+    // Create a clicker for each name listed
+    $("#" + catNum).click(function(catcatNumCopy){
+        return function() {
+            // Display an image for each cat
+            $(".cat-display").html("<img src=img/cat-pic-" +
+                catNumCopy + ".jpg alt='" + catNames[catNumCopy] + "' id=cat-" + catNumCopy + ">");
+            // Display the name of the cat on the top
+            $(".cat-display").prepend("<h2>" + catNames[catNumCopy] + "</h2>");
+            // Display the number of times the cat has been clicked
+            $(".cat-display").append("<h2>" + catNames[catNumCopy] + " has been clicked <span class='clickTimes'>" +
+                    catClicks[catNumCopy] + "</span> times</h2>");
 
-// Add text that displays number of times each cat has been clicked(starting at 0)
-$(".cat-1").append('<h3 class="click-display-1">' + catOneName + ' has been clicked 0 times</h3>');
-$(".cat-2").append('<h3 class="click-display-2">' + catTwoName + ' has been clicked 0 times</h3>')
-
-
-// Everytime each cat has been clicked update its respective counter and update
-// the number that is displayed
-$(".cat-pic-1").click(function(e){
-    catOneClicks += 1
-    $(".click-display-1").text(catOneName + " has been clicked " + catOneClicks + " times");
-});
-
-$(".cat-pic-2").click(function(e){
-    catTwoClicks += 1
-    $(".click-display-2").text(catTwoName + " has been clicked " + catTwoClicks + " times");
-});
-
+            // Create a clicker for each cat image
+            $("img").click(function(e){
+                // Update the number of clicks
+                catClicks[catNumCopy] += 1;
+                // Display the updated number of clicks
+                $(".clickTimes").text(catClicks[catNumCopy]);
+            });
+        };
+    }(catNum));
+}
