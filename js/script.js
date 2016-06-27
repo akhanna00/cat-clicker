@@ -8,11 +8,11 @@ for (var catNum = 0; catNum < catClicks.length; catNum++) {
     // Add each cat name to the display
     $(".cat-names").append("<h2 id='" + catNum + "'>" + catNames[catNum] + "</h2>")
     // Create a clicker for each name listed
-    $("#" + catNum).click(function(catcatNumCopy){
+    $("#" + catNum).click(function(catNumCopy){
         return function() {
             // Display an image for each cat
             $(".cat-display").html("<img src=img/cat-pic-" +
-                catNumCopy + ".jpg alt='" + catNames[catNumCopy] + "' id=cat-" + catNumCopy + ">");
+                catNumCopy + ".jpg alt='" + catNames[catNumCopy] + "'>");
             // Display the name of the cat on the top
             $(".cat-display").prepend("<h2>" + catNames[catNumCopy] + "</h2>");
             // Display the number of times the cat has been clicked
