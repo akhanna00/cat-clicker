@@ -1,22 +1,27 @@
 body {
     background-color: #ff7f96;
 }
+
 img {
-    width: 60%;
+    width: 50%;
     display: block;
     margin: 0 auto;
 }
+
 h2 {
     color: #4f54af;
     font-family: Helvetica;
     text-align: center;
 }
+
 a{
     text-decoration: none;
 }
+
 .col-9 {
     width: 75%;
 }
+
 .col-3 {
     width: 25%;
 }
@@ -25,5 +30,18 @@ a{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+}
+
+.button-div {
+    text-align: center;
+}
+
+.admin-entry {
+    margin-left: 20px;
+    height: 20px;
+}
+
+.submit-btn {
+    margin-right: 10px;
 }
 
