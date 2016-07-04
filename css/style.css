@@ -11,6 +11,9 @@ h2 {
     font-family: Helvetica;
     text-align: center;
 }
+a{
+    text-decoration: none;
+}
 .col-9 {
     width: 75%;
 }
